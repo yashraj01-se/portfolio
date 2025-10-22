@@ -4,4 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      // Only externalize truly external deps, like cord/express if you use serverless functions
+      external: []
+    }
+  }
 })
