@@ -6,11 +6,10 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
-      onwarn(warning, warn) {
-        // 👇  print every warning in full
-        console.warn('ROLLUP WARNING:', warning)
-        warn(warning)
-      },
+      external: [
+        'react', 
+        'react-dom'
+      ],
     },
   },
 })
